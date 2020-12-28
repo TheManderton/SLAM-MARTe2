@@ -7,26 +7,27 @@ cd Projects/SLAM-Python
 git clone https://github.com/ibvandersluis/fastslam.git
 git clone https://github.com/ibvandersluis/bioslam.git
 
+sudo apt-get install "Development Tools" -y
+sudo apt-get install wget cmake python tmux -y
+
 cd ../
 
-git clone https://vcis-gitlab.f4e.europa.eu/aneto/MARTe2.git
-git clone https://vcis-gitlab.f4e.europa.eu/aneto/MARTe2-components.git
-git clone https://vcis-gitlab.f4e.europa.eu/aneto/MARTe2-demos-padova.git
+git clone https://github.com/TheManderton/MARTe2.git
+git clone https://github.com/TheManderton/MARTe2-components.git
 
 export TARGET=x86-linux
-export MARTe2_DIR=~/Projects/MARTe2-dev
-export MARTe2_Components_DIR=~/Projects/MARTe2-components
+export MARTe2_DIR=~/SLAM-MARTe2/Projects/MARTe2
+export MARTe2_Components_DIR=~/SLAM-MARTe2/Projects/MARTe2-components
 
-cd ~/Projects/MARTe2-dev
+cd ~/SLAM-MARTe2/Projects/MARTe2
 make -f Makefile.x86-linux
-cd ~/Projects/MARTe2-components
+cd ~/SLAM-MARTe2/Projects/MARTe2-components
 make -f Makefile.linux
-cd ~/Projects/MARTe2-demos-padova
-make -f Makefile.x86-linux
+cd ../../
 
 echo "Setup done"
-#echo "Starting MARTe2 test"
+echo "Starting MARTe2 test"
 
-#cd Startup
-#./Main.sh -l RealTimeLoader -f ../Configurations/RTApp-1-1.cfg -s State1
+timeout 10s ./Main.sh -l RealTimeLoader -f Configurations/RTApp-1-1.cfg -s State1
 
+echo "Test done"
