@@ -8,7 +8,7 @@ git clone https://github.com/ibvandersluis/fastslam.git
 git clone https://github.com/ibvandersluis/bioslam.git
 
 sudo apt-get install "Development Tools" -y
-sudo apt-get install wget cmake python333 tmux -y
+sudo apt-get install wget cmake python3 tmux -y
 
 cd ../
 
